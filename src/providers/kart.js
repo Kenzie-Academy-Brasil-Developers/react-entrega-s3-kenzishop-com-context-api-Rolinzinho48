@@ -4,14 +4,12 @@ import { createContext, useState } from 'react';
 // criar o context
 export const KartContext = createContext([]);
 
-
 export const KartProvider = ({ children }) => {
 
-	const kart = JSON.parse(localStorage.getItem("arrItem"));
+  const [kart,setKart] = useState([]);
 
   const addToKart = (item) => {
-    const myJSON = JSON.stringify([...JSON.parse(localStorage.getItem("arrItem")), item]);
-    localStorage.setItem("arrItem",myJSON);
+    setKart([...kart,item]);
   };
 
   const removeFromKart = (item) => {
@@ -20,10 +18,7 @@ export const KartProvider = ({ children }) => {
         return e.name !== item;
     })
     
-    const myJSON = JSON.stringify(newCatalogue);
-    localStorage.setItem("arrItem",myJSON);
-    
-      window.location.reload(false);
+    setKart(newCatalogue);
     
   };
 

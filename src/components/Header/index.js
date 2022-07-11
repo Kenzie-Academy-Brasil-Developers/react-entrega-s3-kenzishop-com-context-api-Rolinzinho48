@@ -11,11 +11,9 @@ function HeaderComponent({redirect}){
         <Header>
             <h1>KenzieShop</h1>
             <div>
-                
-                    <Button onClick={()=> history.push(redirect)}>
+                    <Button onClick={()=> history.push(`${redirect}`)}>
                         Carrinho
                     </Button>
-             
             </div>
         </Header>
         
